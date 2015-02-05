@@ -96,7 +96,7 @@ namespace lime {
 				CFIndex maxSize = CFStringGetMaximumSizeForEncoding (CFStringGetLength (str), kCFStringEncodingUTF8);
 				char *buffer = (char *)malloc (maxSize);
 				if (CFStringGetCString (str, buffer, maxSize, kCFStringEncodingUTF8)) {
-					result = ::fopen (buffer,"rb");
+					result = SDL_RWFromFile (buffer,"rb");
 					free (buffer);
 				}
 				CFRelease (str);
